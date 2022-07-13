@@ -10,18 +10,6 @@ const violidInput = document.getElementById('search-violationid-input')
 const results = document.getElementById('results')
 const zipBtn = document.getElementById('search-zipcode-button')
 const zipInput = document.getElementById('zipInput')
-// const myCases = document.getElementById('my-case')
-
-
-// const addCaseToMonitor = (element) =>{
-//     const btnAdd = document.getElementById('add')
-//     btnAdd.addEventListener('click',()=> {
-//         console.log('works create element')
-//         let monitorViolation = document.createElement('p')
-//         monitorViolation.textContent = `Violation number: ${element['violationid']}`
-//         myCases.append(monitorViolation)
-//     })
-// }
 
 const createRecord = (element)=>{
     let p = document.createElement('p')
@@ -54,8 +42,6 @@ const createRecord = (element)=>{
             monitorViolation.textContent = `${element['violationid']}`
             document.getElementById("case-list").append(monitorViolation)
         })
-  
-    
 }
 
 
@@ -94,7 +80,6 @@ const searchByAddress = (res) =>{
         addressStreetInput.value = ''
         addressZipInput.value = '' 
         addressAptInput.value = ''
-
     })
 }
 
@@ -108,9 +93,7 @@ const searchByZip = (res) =>{
             }
         })
         zipInput.value =''
-
     })
-
 }
 
 
@@ -121,6 +104,7 @@ const fetchReqData =async()=>{
     searchByZip(res)
     searchByAddress(res)
 }
+
 fetchReqData()
 
 const openSearch = (evt, searchBy) => {
@@ -133,7 +117,6 @@ const openSearch = (evt, searchBy) => {
     for (i = 0; i < tablinks.length; i++) {
         tablinks[i].className = tablinks[i].className.replace(" active", "");
     }
-
     document.getElementById(searchBy).style.display = "block";
     evt.currentTarget.className += " active";
 }
