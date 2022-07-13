@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<header>
+    <link rel="stylesheet" href="index.css">
+    <script defer src="index.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+    href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Fjalla+One&family=Kanit:ital,wght@0,400;0,800;1,900&family=Poller+One&display=swap"
+    rel="stylesheet">
+
+
+    <title>building code violations</title>
+</header>
+
+<body>
+    <div id="head">
+        <img id="OpenDataImg" src="https://www.open-data.nyc/wp-content/uploads/2021/11/NYCOpenData_Logo.png">
+        <h1>HOUSING MAINTENANCE CODE VIOLATIONS</h1>
+    </div>
+    <div class="background">
+        
+        <div id="external-links">
+            <p id="my-case">MY CASE LIST</p>
+            <p id="case-list"></p>
+            <br>
+            <p id="sources">SOURCES</p>
+            <a href="https://data.cityofnewyork.us/resource/wvxf-dwi5.json">API</a><br>
+            <a href="https://opendata.cityofnewyork.us/">NYC Open Data</a><br>
+            <a href="https://www1.nyc.gov/">Report a Violation</a><br>
+            <a href="https://www1.nyc.gov/assets/buildings/pdf/HousingMaintenanceCode.pdf">Housing Maintenance Code</a><br>
+        </div>
+        <div class="main-container">
+            <div id="introduction">
+                <h3>You will never again rent an apartment with a broken smoke detector...</h3>
+                Can you imagine that you sign a contract for a long-term rental of your dream apartment? It’s summer, and you are
+                excited that your future place is comfortable, the air conditioner works perfectly. Everything seems perfect…. You
+                agreed to stay in the apartment for some time, sign a contract, pay for the moving company and make the apartment your
+                new place. Finally, you feel that this is your place. Then winter is coming and you realize that the bedroom window
+                can't be closed properly. The heating system works however temperature in the apartment is under 68 degrees Fahrenheit.
+                Sounds like a nightmare… <br>
+                You can minimize the risk of renting an apartment with unexpected issue. <br> <br>
+                The New York City Housing Maintenance Code establishes the minimum standards for health and safety, fire protection, light and ventilation cleanliness, repair and
+                maintenance and occupancy in residential dwellings. In accordance with the Code, the Department of Housing
+                Preservation and Development (HPD) issues violations against conditions, in rental dwelling units and buildings, that
+                have been verified to violate the New York City Housing Maintenance Code (HMC) or the New York State Multiple Dwelling
+                Law (MDL). Violations are registered by Housing Inspectors after a physical inspection of a building. (except for class
+                I violations which are generally administratively issued). Violations are categorized into four classes:
+                <ul>
+                    <li>A (non-hazardous),</li>
+                    <li>Class B (hazardous),</li>
+                    <li>Class C (immediately hazardous),</li>
+                    <li>Class I (information orders).</li>
+                </ul>
+            </div>
+            <div class="tab">
+                <button class="tablinks" onclick="openSearch(event, 'search-violationid-div')">Search violation ID</button>
+                <button class="tablinks" onclick="openSearch(event, 'search-address-div')">Search by address</button>
+                <button class="tablinks" onclick="openSearch(event, 'search-zipcode-div')">Sarch by zip code</button>
+
+            </div>
+            <div id="search-violationid-div"class="tabcontent">
+                <form id="search-violationid">
+                    <p>SEARCH BY VIOLATION ID</p>
+                    <input  type="text" placeholder="violation id" id="search-violationid-input" maxlength="8">
+                    <button id="search-violationid-button">Search</button>
+                </form>
+            </div>
+            <div id="search-address-div" class="tabcontent">
+                <form id="search-address">
+                    <p>SEARCH BY ADDRESS</p>
+                    <input id="search-address-borough-input" type="text" placeholder="Borough" list="borough">
+                    <input id="search-address-house-input" type="text" placeholder="House number">
+                    <input id="search-address-apartament-input" type="text" placeholder="Apt" >
+                    <input id="search-address-street-input" type="text" placeholder="Street name">
+                    <input id="search-address-zip-input" type="text" placeholder="Zip code" maxlength="5" placeholder="xxxxx">
+                    <button id="search-address-button">Search</button>
+                    <datalist id="borough">
+                        <option>BRONX</option>
+                        <option>BROOKLYN</option>
+                        <option>MANHATTAN</option>
+                        <option>QUEENS</option>
+                        <option>STATEN ISLAND</option>
+                    </datalist>
+                </form>
+            </div>
+            <div id="search-zipcode-div" class="tabcontent">
+                <form id="search-zipcode">
+                    <p>SEARCH BY ZIP CODE</p>
+                    <input type="text"  placeholder="xxxxx" maxlength="5" id="zipInput">
+                    <button id="search-zipcode-button">Search</button>
+                </form>
+            </div>
+
+            
+            <p id="results"></p> 
+        </div>
+        
+        
+        </div>
+    </div>
+
+</body>
+</html>
+
+
+
+<!-- 
+User can search by:
+    {
+"violationid": "10000197",
+"boro": "BRONX"
+"zip": "10457",
+"violationstatus": "Open",
+},
+ -->
+
+ <!-- user receive information about searchin cases:
+{
+"violationid": "10000197",
+
+"boro": "BRONX",
+"housenumber": "231",
+"streetname": "ECHO PLACE",
+"streetcode": "29920",
+"zip": "10457",
+"lot": "45",
+"class": "A",
+"inspectiondate": "2013-10-08T00:00:00.000",
+"currentstatus"
+"novdescription": "SECTION 27-2005 ADM CODE REPLACE WITH NEW THE MISSING HANDRAIL AT EAST AND WEST SECTION AT NORTH AND SOUTH WALL AT PUBLIC HALL, 1st STORY",
+"violationstatus": "Open",
+},
+
+-->
